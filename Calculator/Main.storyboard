@@ -309,6 +309,9 @@
                                 <state key="normal" title="±">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sigmDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VP4-d3-dmW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cdh-HK-nY1">
                                 <rect key="frame" x="136" y="516" width="104" height="76"/>

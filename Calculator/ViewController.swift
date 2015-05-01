@@ -47,6 +47,19 @@ class ViewController: UIViewController {
         point.setTitle(decimalSeparator, forState: UIControlState.Normal)
     }
     
+    @IBAction func sigmDigit(sender: UIButton) {
+        if userIsInTheMiddleOfTypingANumber {
+            if (display.text!.rangeOfString("-") != nil) {
+                display.text = dropFirst(display.text!)
+            } else {
+                display.text = "-" + display.text!
+            }
+        } else {
+            operate(sender)
+        }
+    }
+    
+    
     @IBAction func enterMToDictionary(sender: UIButton) {
         if let number = displayValue {
             brain.nonPrivateAPI("enterVariable",operand:number)
@@ -98,15 +111,15 @@ class ViewController: UIViewController {
         if userIsInTheMiddleOfTypingANumber {
             // продолжаем ввод операнда
             display.text = display.text! + digit
-            // Чтобы не было ведущих нулей в целом числе
+            // Убираем ведущие нули
             if (display.text!.rangeOfString(".") == nil){
                 display.text = "\(display.text!.toInt()!)"
             }
-            //display.text = "\(displayValue!)"
+
         } else {
             display.text = digit
-            //display.text = "\(displayValue!)"
-            // Чтобы не было ведущих нулей в целом числе
+            
+            // Убираем ведущие нули
             if (display.text!.rangeOfString(".") == nil){
                 display.text = "\(display.text!.toInt()!)"
             }
